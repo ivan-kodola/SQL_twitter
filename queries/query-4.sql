@@ -1,7 +1,7 @@
 USE twitter;
 
-SELECT users.id, firstname, surname,
-COUNT(followers.follower_id) AS followers
-FROM users
-JOIN followers ON (users.id = followers.followed_id)
-GROUP BY users.id;
+SELECT u.id, u.firstname, u.surname,
+COUNT(f.follower_id) AS followers
+FROM users u
+JOIN followers f ON (f.followed_id = u.id)
+GROUP BY u.id;

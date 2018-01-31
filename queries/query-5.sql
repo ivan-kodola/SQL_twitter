@@ -1,7 +1,7 @@
 USE twitter;
 
-SELECT users.id, firstname, surname
-FROM users
-LEFT JOIN twitts ON (users.id = twitts.user_id)
-WHERE twitts.id IS NULL
-GROUP BY users.id;
+SELECT u.id, u.firstname, u.surname
+FROM users u
+LEFT JOIN twitts t ON (t.user_id = u.id)
+WHERE t.id IS NULL
+GROUP BY u.id;

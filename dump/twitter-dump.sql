@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `comments`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
-  `comment` text NOT NULL,
+  `comment` mediumtext NOT NULL,
   `created` datetime DEFAULT NULL,
   `twitt_id` int(9) NOT NULL,
   `user_id` int(9) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `comments` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`twitt_id`) REFERENCES `twitts` (`id`),
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `followers` (
   KEY `follower_id` (`follower_id`),
   CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`followed_id`) REFERENCES `users` (`id`),
   CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`follower_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,14 +82,14 @@ DROP TABLE IF EXISTS `twitts`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `twitts` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
-  `message` text NOT NULL,
+  `message` mediumtext NOT NULL,
   `created` datetime DEFAULT NULL,
   `upload` datetime DEFAULT NULL,
   `user_id` int(9) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `twitts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ivan','ivanov','1990-11-26','2007-10-01 09:00:00','ivan.ivanov','password'),(2,'bogdan','bogdanov','1994-10-03','2008-10-01 10:00:00','bogdan.bogdanow','password'),(3,'petr','petrov','1996-08-29','2009-10-01 11:00:00','petr.petrov','password'),(4,'oleg','olegov','1991-05-07','2000-10-01 12:00:00','oleg.olegov','password'),(5,'igor','igorov','1989-12-30','0000-00-00 00:00:00','igor.igorov','password'),(6,'oksana','ivanova','1990-09-27','2017-10-01 14:00:00','oksana.ivanova','password'),(7,'ira','petrova','2000-07-15','2002-10-01 20:00:00','ira.petrova','password'),(8,'olga','igoreva','1998-03-16','2005-10-01 19:00:00','olga.igoreva','password'),(9,'yulia','dovga','1990-10-07','2007-10-01 18:00:00','yulia.dovga','password'),(10,'maria','shevchenko','2001-11-06','2007-10-01 17:00:00','maria.shevchenko','password'),(11,'igor','kostenko','2000-01-01','2010-05-05 10:00:00','igor.kostenko','password');
+INSERT INTO `users` VALUES (1,'ivan','ivanov','1990-11-26','2007-10-01 09:00:00','ivan.ivanov','password'),(2,'bogdan','bogdanov','1994-10-03','2008-10-01 10:00:00','bogdan.bogdanow','password'),(3,'petr','petrov','1996-08-29','2009-10-01 11:00:00','petr.petrov','password'),(4,'oleg','olegov','1991-05-07','2000-10-01 12:00:00','oleg.olegov','password'),(5,'igor','igorov','1989-12-30','2001-10-02 13:00:00','igor.igorov','password'),(6,'oksana','ivanova','1990-09-27','2017-10-01 14:00:00','oksana.ivanova','password'),(7,'ira','petrova','2000-07-15','2002-10-01 20:00:00','ira.petrova','password'),(8,'olga','igoreva','1998-03-16','2005-10-01 19:00:00','olga.igoreva','password'),(9,'yulia','dovga','1990-10-07','2007-10-01 18:00:00','yulia.dovga','password'),(10,'maria','shevchenko','2001-11-06','2007-10-01 17:00:00','maria.shevchenko','password'),(11,'igor','kostenko','2000-01-01','2010-05-05 10:00:00','igor.kostenko','password');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-31 11:14:16
+-- Dump completed on 2018-01-31 18:16:51
